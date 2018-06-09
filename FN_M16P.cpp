@@ -1,13 +1,13 @@
 #include "MP3Player.h"
+#Define BAUD 9600
 
 MP3Player::MP3Player(PinName txPin, PinName rxPin):mp3(txPin, rxPin)
 {
     uint8_t tmp[10] = {0x7E, 0xFF, 06, 00, 00, 00, 00, 00, 00, 0xEF};
     memcpy(send_buf, tmp, 10);
     is_reply = 0;
-    *iocon_rxd_loc |= 0x03;
     mp3.format(8,Serial::None,1);
-    mp3.baud(9600);
+    mp3.baud(BAUD);
 }
 
 void MP3Player::mp3_set_reply (uint8_t state) {
