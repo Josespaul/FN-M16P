@@ -1,5 +1,5 @@
 #include "MP3Player.h"
-#Define BAUD 9600
+#define BAUD 9600
 
 MP3Player::MP3Player(PinName txPin, PinName rxPin):mp3(txPin, rxPin)
 {
